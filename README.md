@@ -119,7 +119,7 @@ This sytem offers a seamless solution by having a intuitive UI that allows stake
 ``Process Flow - Delete - Manager Only``: <br>
  1. User removes a wishlist entry (e.g. customer is no longer interested).
 
- ## Use Case 7 - View Wishlist Matches
+ ## Use Case 8 - View Wishlist Matches
 ``Actor``: Staff / Manager <br>
 ``Precondition``: At least one set is "In Stock" and at least one wishlist entry is "Active." <br>
 ``Description``: Staff use this view to identify which customers should be contacted about newly available stock. <br>
