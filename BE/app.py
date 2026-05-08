@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, jsonify # jsonify - convert python dict to json format for FE to read
 from flask_cors import CORS
 
 app = Flask(__name__)
@@ -12,7 +12,8 @@ def test():
 
 @app.route('/about') # decorator - must be directly above the function I want to call
 def aboutTest(): # connected to function
-    return 'this is a flask app'
+    return jsonify({ 'message': 'calling from flask', 'status': 'success'
+    })
 
 # run
 if __name__ == '__main__':
