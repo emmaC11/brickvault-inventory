@@ -8,7 +8,7 @@ function App() {
   // fetch data from flask BE 
   useEffect(() =>
   {
-    fetch('http://localhost:5000/api/about')
+    fetch('http://localhost:5000/about')
     .then(response => response.json())
     .then(data => {
       setMessage(data.message)
