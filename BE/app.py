@@ -1,12 +1,22 @@
 from flask import Flask, jsonify # jsonify - convert python dict to json format for FE to read
 from flask_cors import CORS
+from database import db
+from models import LegoSet
+from routes.sets import sets_bp
 
 app = Flask(__name__)
 CORS(app) # allow cross-origin requests from the FE
 
 # db config
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///brickvault.db' # relative path to db file
+db.init_app(app) # connect db to flask app
 
+# register blueprints
+app.register_blueprint(sets_bp)
+
+# create DB tables defined in models.py
+with app.app_context():
+    db.create_all()
 
 # sample route
 @app.route('/')
