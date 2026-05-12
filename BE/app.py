@@ -4,6 +4,10 @@ from flask_cors import CORS
 app = Flask(__name__)
 CORS(app) # allow cross-origin requests from the FE
 
+# db config
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///brickvault.db' # relative path to db file
+
+
 # sample route
 @app.route('/')
 
