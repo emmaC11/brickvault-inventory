@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './App.css'
+import InventoryList from './pages/InventoryList' 
 
 function App() {
   const [message, setMessage] = useState('')
@@ -21,11 +22,12 @@ function App() {
 
   return (
     <>
-    <div className="App">
+    {/* <div className="App">
       <h1>React & Flask connection</h1>
       <p>BE message: {message}</p>
       <p style={{color: 'red'}}>{error}</p>
-    </div>
+    </div> */}
+    <InventoryList />
 
     </>
   )
