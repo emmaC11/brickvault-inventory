@@ -45,7 +45,7 @@ export default function InventoryList() {
               <TableCell><strong>Name</strong></TableCell>
               <TableCell><strong>Price</strong></TableCell>
               <TableCell><strong>Notes</strong></TableCell>
-              <TableCell><strong>In Stock</strong></TableCell> 
+              <TableCell><strong>Status</strong></TableCell> 
               <TableCell><strong>Actions</strong></TableCell>
             </TableRow>
           </TableHead>
