@@ -45,6 +45,8 @@ export default function InventoryList() {
               <TableCell><strong>Name</strong></TableCell>
               <TableCell><strong>Price</strong></TableCell>
               <TableCell><strong>Notes</strong></TableCell>
+              <TableCell><strong>In Stock</strong></TableCell> 
+              <TableCell><strong>Actions</strong></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -71,6 +73,19 @@ export default function InventoryList() {
                   <Typography variant="body2" color="textSecondary">
                     {set.notes || 'No notes available.'}
                   </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2" color="textSecondary">
+                    {set.stock > 0 ? "In Stock" : "Out of Stock"}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Button size="small" variant="text" color="primary">
+                    Edit
+                  </Button>
+                  <Button size="small" variant="text" color="error" sx={{ ml: 1 }}>
+                    Delete
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
