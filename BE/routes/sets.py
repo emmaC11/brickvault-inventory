@@ -14,7 +14,7 @@ def get_sets():
 @sets_bp.route('/sets', methods=['POST'])
 def create_set():
     data = request.get_json()
-    new_set = LegoSet(name=data['name'], price=data['price'], set_number=data['set_number'])
+    new_set = LegoSet(name=data['name'], price=data['price'], set_number=data['set_number'], year=data.get('year'), num_parts=data.get('num_parts'), notes=data.get('notes'))
     db.session.add(new_set)
     db.session.commit()
     return jsonify(new_set.to_dict()), 201
