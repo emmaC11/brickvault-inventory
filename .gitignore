@@ -1,3 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+*.db
+*.sqlite
+*.sqlite3
+venv/
+env/
+ENV/
+
 # Logs
 logs
 *.log
@@ -137,3 +153,9 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+
+# planning & misc
+plan.md
+Docs/Project_Assessment B8IT150 (1).pdf
+Docs/Advanced Programming Assessment Plan.pdf
