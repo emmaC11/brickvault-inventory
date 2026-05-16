@@ -1,4 +1,17 @@
 import React from 'react'
+import { useState, useEffect } from 'react'
+import { 
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+  Box,
+  Chip,
+  Button
+} from '@mui/material'
 
 export default function InventoryList() {
 
@@ -20,8 +33,56 @@ export default function InventoryList() {
     }
   }
   return (
-    <div>
-      
-    </div>
+    <Box p={3}>
+      <Typography variant="h4">
+        BrickVault Inventory
+      </Typography>
+      <TableContainer sx={{ mt: 3 }}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell><strong>Set #</strong></TableCell>
+              <TableCell><strong>Name</strong></TableCell>
+              <TableCell><strong>Price</strong></TableCell>
+              <TableCell><strong>Notes</strong></TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {sets.map((set) => (
+              <TableRow key={set.id} hover>
+                <TableCell>
+                  <Chip 
+                    label={set.set_number} 
+                    size="small" 
+                    color="primary"
+                  />
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body1">
+                    {set.name}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="h6" color="primary">
+                    €{set.price.toFixed(2)}
+                  </Typography>
+                </TableCell>
+                <TableCell>
+                  <Typography variant="body2" color="textSecondary">
+                    {set.notes || 'No notes available.'}
+                  </Typography>
+                </TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+
+      {error && (
+        <Typography color="error" mt={2}>
+          Error: {error}
+        </Typography>
+      )}
+    </Box>
   )
 }
