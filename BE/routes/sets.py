@@ -18,3 +18,20 @@ def create_set():
     db.session.add(new_set)
     db.session.commit()
     return jsonify(new_set.to_dict()), 201
+
+@sets_bp.route('/sets/<int:set_id>', methods=['PUT'])
+def update_set(set_id):
+    data = request.get_json()
+    update_set = LegoSet.query.get(set_id)
+    if update_set:
+        update_set.name = data['name']
+        update_set.price = data['price']
+        update_set.set_number = data['set_number']
+        update_set.year = data.get('year', update_set.year)
+        update_set.num_parts = data.get('num_parts', update_set.num_parts)
+        update_set.notes = data.get('notes', update_set.notes)
+        db.session.commit()
+        return jsonify(update_set.to_dict()), 200
+    else:
+        return jsonify({'error': 'Set not found'}), 404
+
