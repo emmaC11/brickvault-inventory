@@ -16,3 +16,14 @@ def get_set_details_from_rebrickable(set_number):
 
         if response.status_code == 404:
             return jsonify({'set not found in rebrickable API'}), 404
+        
+        data = response.json()
+
+        set_data = {
+            'name': data.get('name'),
+            'set_number': data.get('set_num'),
+            'year': data.get('year'),
+            'num_parts': data.get('num_parts'),
+        }
+
+        return jsonify(set_data), 200   
