@@ -4,11 +4,11 @@ import requests
 
 rebrickable_bp = Blueprint('rebrickable', __name__)
 
-@rebrickable_bp.route('api/rebrickable/sets/<set_number>', methods=['GET'])
+@rebrickable_bp.route('/api/rebrickable/sets/<set_number>', methods=['GET'])
 def get_set_details_from_rebrickable(set_number):
         try: 
-            url = 'https://rebrickable.com/api/v3/lego/sets/{set_number}'
-            headers = {'Authorization': {REBRICKABLE_API_KEY}}
+            url = f'https://rebrickable.com/api/v3/lego/sets/{set_number}'
+            headers = {'Authorization': REBRICKABLE_API_KEY}
 
             response = requests.get(url, headers=headers)
 
