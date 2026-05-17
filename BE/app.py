@@ -3,6 +3,7 @@ from flask_cors import CORS
 from database import db
 from models import LegoSet
 from routes.sets import sets_bp
+from routes.rebrickable import rebrickable_bp
 
 app = Flask(__name__)
 CORS(app) # allow cross-origin requests from the FE
@@ -13,6 +14,7 @@ db.init_app(app) # connect db to flask app
 
 # register blueprints
 app.register_blueprint(sets_bp)
+app.register_blueprint(rebrickable_bp)
 
 # create DB tables defined in models.py
 with app.app_context():
