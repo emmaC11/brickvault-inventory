@@ -17,6 +17,7 @@ def get_set_details_from_rebrickable(set_number):
         if response.status_code == 404:
             return jsonify({'set not found in rebrickable API'}), 404
         
+        # parse response to dict & map to LegoSet fields
         data = response.json()
 
         set_data = {
