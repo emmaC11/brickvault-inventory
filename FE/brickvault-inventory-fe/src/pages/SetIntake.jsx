@@ -89,10 +89,13 @@ return (
               label="Enter Set Number"
               value={setNumber}
               onChange={(e) => setSetNumber(e.target.value)}
-              fullWidth
+              size="small"
+              sx={{ flexGrow: 1 }}
             />
-            <Button 
-              variant="contained" 
+            <Button
+              variant="contained"
+              size="small"
+              sx={{ ml: 2 }}
               onClick={fetchSetData}>
               Fetch Details from Rebrickable
             </Button>
