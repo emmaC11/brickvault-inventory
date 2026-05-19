@@ -31,6 +31,13 @@ const fetchSetData = async () =>
     }
 
     const data = await res.json(); 
+
+    setFormData({
+      name: data.name,
+      set_number: data.set_number,
+      num_parts: data.num_parts,
+      year: data.year,
+    });
   }
 
     catch (err) {
@@ -45,7 +52,7 @@ const onSubmit = async (e) => {
 
   try
   {
-    const res = await fetch('http://localhost:5000/api/sets', {
+    const res = await fetch('http://localhost:5000/sets', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
