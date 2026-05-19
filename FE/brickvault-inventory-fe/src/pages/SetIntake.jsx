@@ -6,10 +6,10 @@ const [setNumber, setSetNumber] = useState('');
 const [success, setSuccess] = useState('');
 const [error, setError] = useState('');
 const [formData, setFormData] = useState({
-  setNumber: '',
+  set_number: '',
   name: '',
   year: '',
-  numParts: '',
+  num_parts: '',
   price: '',
   notes: '',
   stock:''
@@ -59,7 +59,7 @@ const onSubmit = async (e) => {
   },
     body: JSON.stringify({
       name: formData.name,
-      set_number: formData.setNumber,
+      set_number: formData.set_number,
       year: formData.year,
       num_parts: formData.numParts,
       price: formData.price,
