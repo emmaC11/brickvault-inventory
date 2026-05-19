@@ -82,7 +82,7 @@ const onSubmit = async (e) => {
 
 
 return (
-    <Box p={3}>
+    <Box p={3} sx={{ maxWidth: 700, mx: 'auto' }}>
       <Typography variant="h4" gutterBottom>
         Add New Lego Set
       </Typography>
