@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Box, Typography, Button, TextField } from '@mui/material'
+import { Box, Typography, Button, TextField, Alert } from '@mui/material'
 export default function SetIntake() {
 
 const [setNumber, setSetNumber] = useState('');
@@ -18,6 +18,9 @@ const [formData, setFormData] = useState({
 // fetch data from rebrickabke api
 const fetchSetData = async () =>
 {
+  setError('');
+  setSuccess('');
+
   if (!setNumber) {
     setError('Please enter a set number');
     return;
@@ -49,6 +52,8 @@ const fetchSetData = async () =>
 // handle form submissions - send form data to our post endpoint
 const onSubmit = async (e) => {
   e.preventDefault(); // prevent default reload
+  setError('');
+  setSuccess('');
 
   try
   {
@@ -86,6 +91,9 @@ return (
       <Typography variant="h4" gutterBottom>
         Add New Lego Set
       </Typography>
+
+      {success && <Alert severity="success" sx={{ mb: 2 }}>{success}</Alert>}
+      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
         {/* fetch set details from rebrickable */}
         <Box mb={3}>
           <Typography variant="h6">
