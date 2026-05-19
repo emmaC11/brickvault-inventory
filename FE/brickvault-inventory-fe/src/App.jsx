@@ -1,10 +1,13 @@
 import { useState, useEffect } from 'react'
 import './App.css'
 import InventoryList from './pages/InventoryList' 
+import SetIntake from './pages/SetIntake'
+import { Tabs,Tab } from '@mui/material'
 
 function App() {
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
+  const [tab, setTab] = useState(0)
 
   // fetch data from flask BE 
   useEffect(() =>
@@ -27,7 +30,14 @@ function App() {
       <p>BE message: {message}</p>
       <p style={{color: 'red'}}>{error}</p>
     </div> */}
-    <InventoryList />
+    {/* <InventoryList /> */}
+      <Tabs value={tab} onChange={(e, newValue) => setTab(newValue)}>
+        <Tab label="Inventory List" />
+        <Tab label="Add Set" />
+      </Tabs>
+      {tab === 0 && <InventoryList />}
+      {tab === 1 && <SetIntake />}
+
 
     </>
   )
