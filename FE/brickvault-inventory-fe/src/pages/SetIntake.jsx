@@ -1,4 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
+import { Box, Typography, Button, TextField } from '@mui/material'
+export default function SetIntake() {
 
 const [setNumber, setSetNumber] = useState('');
 const [success, setSuccess] = useState('');
@@ -71,10 +73,31 @@ const onSubmit = async (e) => {
     }
 }
 
-export default function SetIntake() {
-  return (
-    <div>
-      
-    </div>
-  )
+
+return (
+    <Box p={3}>
+      <Typography variant="h4" gutterBottom>
+        Add New Lego Set
+      </Typography>
+        {/* fetch set details from rebrickable */}
+        <Box mb={3}>
+          <Typography variant="h6">
+            Fetch Set Details
+          </Typography>
+          <Box display="flex" gap={2}>
+            <TextField
+              label="Enter Set Number"
+              value={setNumber}
+              onChange={(e) => setSetNumber(e.target.value)}
+              fullWidth
+            />
+            <Button 
+              variant="contained" 
+              onClick={fetchSetData}>
+              Fetch Details from Rebrickable
+            </Button>
+          </Box>
+        </Box>
+    </Box>
+)
 }
