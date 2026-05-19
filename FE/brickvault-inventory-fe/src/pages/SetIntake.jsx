@@ -101,6 +101,72 @@ return (
             </Button>
           </Box>
         </Box>
-    </Box>
+
+        {/* add set form*/}
+        <form onSubmit={onSubmit}>
+          <TextField
+            label="Name"
+            value={formData.name}
+            onChange={(e) => setFormData({...formData, name: e.target.value})}
+            fullWidth
+            margin="normal"
+            required
+          />
+
+          <TextField
+            label="Set Number"
+            value={formData.set_number}
+            onChange={(e) => setFormData({...formData, set_number: e.target.value})}
+            fullWidth
+            margin="normal"
+
+          />
+
+          <TextField
+            label="Year"
+            type="number"
+            value={formData.year}
+            onChange={(e) => setFormData({...formData, year: e.target.value})}
+            fullWidth
+          />
+
+          <TextField
+            label="Number of Parts"
+            type="number"
+            value={formData.num_parts}
+            onChange={(e) => setFormData({...formData, num_parts: e.target.value})}
+            fullWidth
+            margin="normal"
+          />
+
+          <TextField
+            label="Price (€)"
+            type="number"
+            step="0.01"
+            value={formData.price}
+            onChange={(e) => setFormData({...formData, price: e.target.value})}
+            fullWidth
+            margin="normal"
+            required
+          />
+
+          <TextField
+            label="Notes"
+            value={formData.notes}
+            onChange={(e) => setFormData({...formData, notes: e.target.value})}
+            fullWidth
+            margin="normal"
+            multiline
+          />
+
+          <Button 
+            type="submit" 
+            variant="contained" 
+            sx={{ mt: 2 }}
+          >
+            Save Set
+          </Button>
+        </form>
+    </Box> 
 )
 }
