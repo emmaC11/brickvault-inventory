@@ -78,6 +78,16 @@ const onSubmit = async (e) => {
     }
 
     setSuccess('set added successfully');
+    
+    setFormData({
+      name: '',
+      set_number: '',
+      year: '',
+      num_parts: '',
+      price: '',
+      notes: '',
+      stock:''
+    });
   }
     catch (err) {
       setError(err.message);
