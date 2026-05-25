@@ -11,6 +11,14 @@ def get_sets():
     sets_list = [set.to_dict() for set in sets]
     return jsonify(sets_list)
 
+@sets_bp.route('/sets/<int:set_id>', methods=['GET'])
+def get_set_info(set_id):
+    set = LegoSet.query.get(set_id)
+    if set:
+        return jsonify(set.to_dict())
+    else:
+        return jsonify({'error': 'Set not found'}), 404
+
 @sets_bp.route('/sets', methods=['POST'])
 def create_set():
     data = request.get_json()
