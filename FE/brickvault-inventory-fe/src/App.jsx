@@ -3,6 +3,7 @@ import './App.css'
 import InventoryList from './pages/InventoryList' 
 import SetIntake from './pages/SetIntake'
 import { Tabs,Tab } from '@mui/material'
+import { BrowserRouter } from 'react-router-dom'
 
 function App() {
   const [message, setMessage] = useState('')
@@ -24,7 +25,7 @@ function App() {
   }, [])
 
   return (
-    <>
+    <BrowserRouter>
     {/* <div className="App">
       <h1>React & Flask connection</h1>
       <p>BE message: {message}</p>
@@ -38,8 +39,7 @@ function App() {
       {tab === 0 && <InventoryList />}
       {tab === 1 && <SetIntake />}
 
-
-    </>
+    </BrowserRouter>
   )
 }
 
