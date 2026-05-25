@@ -3,7 +3,7 @@ import './App.css'
 import InventoryList from './pages/InventoryList' 
 import SetIntake from './pages/SetIntake'
 import { Tabs,Tab } from '@mui/material'
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 
 function App() {
   const [message, setMessage] = useState('')
@@ -32,12 +32,15 @@ function App() {
       <p style={{color: 'red'}}>{error}</p>
     </div> */}
     {/* <InventoryList /> */}
-      <Tabs value={tab} onChange={(e, newValue) => setTab(newValue)}>
-        <Tab label="Inventory List" />
-        <Tab label="Add Set" />
-      </Tabs>
-      {tab === 0 && <InventoryList />}
-      {tab === 1 && <SetIntake />}
+      <nav>
+        <Link to="/inventory">Inventory List</Link>
+        <Link to="/add-set">Add Set</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/inventory" element={<InventoryList />} />
+        <Route path="/add-set" element={<SetIntake />} />
+      </Routes>
 
     </BrowserRouter>
   )
