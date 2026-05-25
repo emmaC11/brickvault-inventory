@@ -26,12 +26,6 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* <div className="App">
-      <h1>React & Flask connection</h1>
-      <p>BE message: {message}</p>
-      <p style={{color: 'red'}}>{error}</p>
-    </div> */}
-    {/* <InventoryList /> */}
       <nav>
         <Link to="/inventory">Inventory List</Link>
         <Link to="/add-set">Add Set</Link>
