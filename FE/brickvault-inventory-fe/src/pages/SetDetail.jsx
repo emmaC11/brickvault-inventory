@@ -26,8 +26,19 @@ export default function SetDetail() {
     }
   }
   return (
+    // ADD STYLING HERE
     <div>
-      
-    </div>
+      {error && <p style={{ color: 'red' }}>Error: {error}</p>}
+      <div>
+        <h1>{setInfo.name}</h1>
+        <p><strong>Set Number:</strong> {setInfo.set_number}</p>
+        <p><strong>Price:</strong> ${setInfo.price}</p>
+        <p><strong>Year:</strong> {setInfo.year || 'NA'}</p>
+        <p><strong>Number of Parts:</strong> {setInfo.num_parts || 'NA'}</p>
+        <p><strong>Stock:</strong> {setInfo.stock}</p>
+        <p><strong>Notes:</strong> {setInfo.notes || 'NA'}</p>
+        <p><strong>ID:</strong> {setInfo.id}</p>
+      </div>
+</div>
   )
 }
