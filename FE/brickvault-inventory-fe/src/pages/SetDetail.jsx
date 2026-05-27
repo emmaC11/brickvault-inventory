@@ -27,6 +27,7 @@ export default function SetDetail() {
   }
   return (
     // ADD STYLING HERE
+    // checj why set_number is showing as NA each time
     <div>
       {error && <p style={{ color: 'red' }}>Error: {error}</p>}
       <div>
