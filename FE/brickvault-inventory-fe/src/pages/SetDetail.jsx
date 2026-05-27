@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState, useEffect, useParams } from 'react'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 
 export default function SetDetail() {
   // setId passed from InventoryList.jsx (view button)
