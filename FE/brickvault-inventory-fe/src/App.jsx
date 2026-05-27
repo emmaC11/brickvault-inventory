@@ -65,7 +65,7 @@ function App() {
       <Routes>
         <Route path="/inventory" element={<InventoryList />} />
         <Route path="/add-set" element={<SetIntake />} />
-        <Route path="/edit-set/:id" element={<SetDetail />} />
+        <Route path="/sets/:setId" element={<SetDetail />} />
       </Routes>
     </BrowserRouter>
   )
