@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import InventoryList from './pages/InventoryList' 
 import SetIntake from './pages/SetIntake'
+import SetDetail from './pages/SetDetail'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar';
@@ -64,6 +65,7 @@ function App() {
       <Routes>
         <Route path="/inventory" element={<InventoryList />} />
         <Route path="/add-set" element={<SetIntake />} />
+        <Route path="/edit-set/:id" element={<SetDetail />} />
       </Routes>
     </BrowserRouter>
   )

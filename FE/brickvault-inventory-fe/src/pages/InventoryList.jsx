@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { 
   Table,
   TableBody,
@@ -80,7 +81,7 @@ export default function InventoryList() {
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Button size="small" variant="text" color="primary">
+                  <Button size="small" variant="text" color="primary" component={Link} to={`/edit/${set.id}`}>
                     Edit
                   </Button>
                   <Button size="small" variant="text" color="error" sx={{ ml: 1 }}>
