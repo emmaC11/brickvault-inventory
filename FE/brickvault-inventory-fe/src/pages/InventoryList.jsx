@@ -81,7 +81,7 @@ export default function InventoryList() {
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Button size="small" variant="text" color="primary" sx={{ ml: 1 }} component={Link} to={`/sets/${set.set.id}`}>
+                  <Button size="small" variant="text" color="primary" sx={{ ml: 1 }} component={Link} to={`/sets/${set.id}`}>
                     View
                   </Button>
                   <Button size="small" variant="text" color="primary" sx={{ ml: 1 }}>
