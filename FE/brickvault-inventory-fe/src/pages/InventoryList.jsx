@@ -33,6 +33,21 @@ export default function InventoryList() {
       console.error('error fetching sets:', err)
     }
   }
+
+  const deleteSet = async (setId) => {
+    try {
+      const res = await fetch(`http://localhost:5000/sets/${setId}`, {
+        method: 'DELETE'
+      })
+      if (res.ok) {
+        fetchSets()
+      }
+    } catch (err) {
+      setError(err.message)
+      console.error('error deleting set:', err)
+    }
+  }
+
   return (
     <Box p={3}>
       <Typography variant="h4">
