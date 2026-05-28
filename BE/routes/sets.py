@@ -44,3 +44,12 @@ def update_set(set_id):
     else:
         return jsonify({'error': 'Set not found'}), 404
 
+@sets_bp.route('/sets/<int:set_id>', methods=['DELETE'])
+def delete_set(set_id):
+    set = LegoSet.query.get(set_id)
+    if set:
+        db.session.delete(set)
+        db.session.commit()
+        return jsonify({'message': 'Set deleted successfully'}), 200
+    else:
+        return jsonify({'error': 'Set not found'}), 404
