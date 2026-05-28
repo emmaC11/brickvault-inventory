@@ -3,6 +3,7 @@ import './App.css'
 import InventoryList from './pages/InventoryList' 
 import SetIntake from './pages/SetIntake'
 import SetDetail from './pages/SetDetail'
+import SetUpdate from './pages/SetUpdate'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar';
@@ -66,6 +67,7 @@ function App() {
         <Route path="/inventory" element={<InventoryList />} />
         <Route path="/add-set" element={<SetIntake />} />
         <Route path="/sets/:setId" element={<SetDetail />} />
+        <Route path="/sets/edit/:setId/" element={<SetUpdate />} />
       </Routes>
     </BrowserRouter>
   )

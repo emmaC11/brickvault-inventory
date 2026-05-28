@@ -99,7 +99,7 @@ export default function InventoryList() {
                   <Button size="small" variant="text" color="primary" sx={{ ml: 1 }} component={Link} to={`/sets/${set.id}`}>
                     View
                   </Button>
-                  <Button size="small" variant="text" color="primary" sx={{ ml: 1 }}>
+                  <Button size="small" variant="text" color="primary" sx={{ ml: 1 }} component={Link} to={`/sets/edit/${set.id}`}>
                     Edit
                   </Button>
                   {/* // potentially add confirmation dialog*/}
