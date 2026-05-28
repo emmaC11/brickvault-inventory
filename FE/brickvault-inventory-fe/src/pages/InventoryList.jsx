@@ -102,6 +102,7 @@ export default function InventoryList() {
                   <Button size="small" variant="text" color="primary" sx={{ ml: 1 }}>
                     Edit
                   </Button>
+                  {/* // potentially add confirmation dialog*/}
                   <Button size="small" variant="text" color="error" sx={{ ml: 1 }} onClick={() => deleteSet(set.id)}>
                     Delete
                   </Button>
