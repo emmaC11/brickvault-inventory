@@ -10,6 +10,7 @@ import {
 export default function SetUpdate() {
     const { setId } = useParams()
     const [error, setError] = useState('')
+    const [success, setSuccess] = useState('')
     // initiaise form data with empty values, will update with set details on load
     const [formData, setFormData] = useState({
         name: '',
@@ -47,7 +48,40 @@ export default function SetUpdate() {
       console.error('error fetching set details:', err)
     }
   }
-    
+
+  // handle form submissions - send form data to our post endpoint
+  const onSubmit = async (e) => {
+    e.preventDefault(); // prevent default reload
+    setError('');
+    setSuccess('');
+
+    // call PUT endpoint 
+    try {
+      const res = await fetch(`http://localhost:5000/sets/${setId}`, {
+        method: 'PUT',
+        headers: { 
+          'Content-Type': 'application/json'
+        },
+          body: JSON.stringify({
+            name: formData.name,
+            set_number: formData.set_number,
+            year: formData.year,
+            num_parts: formData.num_parts,
+            price: formData.price,
+            notes: formData.notes,
+            stock: formData.stock
+          })
+      })
+      if(!res.ok) {
+        throw new Error('error updating set details')
+      }
+      setSuccess('set details updated successfully')
+    } catch (err) {
+      setError(err.message)
+      console.error('error updating set details:', err)
+    }
+  }
+
   return (
     <Box p={3}>
       <Typography variant="h4">
