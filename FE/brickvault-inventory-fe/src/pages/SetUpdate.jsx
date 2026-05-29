@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import { 
   Box,
   TextField,
-  Typography
+  Typography, Button
 } from '@mui/material'
 
 export default function SetUpdate() {
@@ -87,7 +87,7 @@ export default function SetUpdate() {
       <Typography variant="h4">
         Update Set Details
       </Typography>
-      <form>
+      <form onSubmit={onSubmit}>
           <TextField
             label="Name"
             value={formData.name}
@@ -146,10 +146,16 @@ export default function SetUpdate() {
             multiline
             rows={3}
           />
+          <Button type="submit"> Update Set </Button>
       </form>
       {error && (
         <Typography color="error" mt={2}>
           Error: {error}
+        </Typography>
+        )}
+        {success && (
+        <Typography color="primary" mt={2}>
+          {success}
         </Typography>
       )}
     </Box>
