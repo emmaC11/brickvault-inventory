@@ -15,6 +15,33 @@ export default function SetUpdate() {
         stock: '',
         notes: ''
     })
+
+    useEffect(() => {
+        fetchSetDetails()
+    },[setId])
+
+  const fetchSetDetails = async () => {
+    try {
+      const res = await fetch(`http://localhost:5000/sets/${setId}`)
+      if(!res.ok) {
+        throw new Error('Error fetching set details')
+      }
+      const data = await res.json()
+      // assign set details to form data
+      setFormData({
+        name: data.name || '',
+        set_number: data.set_number || '',
+        year: data.year || '',
+        num_parts: data.num_parts || '',
+        price: data.price || '',
+        notes: data.notes || '',
+        stock: data.stock || ''
+      })
+    } catch (err) {
+      setError(err.message)
+      console.error('error fetching set details:', err)
+    }
+  }
     
   return (
     <div>
