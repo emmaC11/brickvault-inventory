@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { 
   Box,
   TextField,
@@ -13,6 +13,7 @@ export default function SetUpdate() {
     const { setId } = useParams()
     const [error, setError] = useState('')
     const [success, setSuccess] = useState('')
+    const navigate = useNavigate()
     // initiaise form data with empty values, will update with set details on load
     const [formData, setFormData] = useState({
         name: '',
@@ -78,6 +79,7 @@ export default function SetUpdate() {
         throw new Error('error updating set details')
       }
       setSuccess('set details updated successfully')
+      navigate('/inventory')
     } catch (err) {
       setError(err.message)
       console.error('error updating set details:', err)
