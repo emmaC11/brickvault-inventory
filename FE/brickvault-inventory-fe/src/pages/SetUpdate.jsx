@@ -146,7 +146,7 @@ export default function SetUpdate() {
             multiline
             rows={3}
           />
-          <Button type="submit"> Update Set </Button>
+          <Button type="submit" variant='contained'> Update Set </Button>
       </form>
       {error && (
         <Typography color="error" mt={2}>
