@@ -50,7 +50,7 @@ export default function InventoryList() {
 
   return (
     <Box p={3}>
-      <Typography variant="h4">
+      <Typography variant="h6" sx={{ mt: 3, color: 'black', textAlign: 'left', ml: 1 }}>
         BrickVault Inventory
       </Typography>
       <TableContainer sx={{ mt: 3 }}>
@@ -69,11 +69,9 @@ export default function InventoryList() {
             {sets.map((set) => (
               <TableRow key={set.id} hover>
                 <TableCell>
-                  <Chip 
-                    label={set.set_number} 
-                    size="small" 
-                    color="primary"
-                  />
+                  <Typography variant="body1">
+                    {set.set_number} 
+                  </Typography>
                 </TableCell>
                 <TableCell>
                   <Typography variant="body1">
@@ -81,19 +79,17 @@ export default function InventoryList() {
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="h6" color="primary">
+                  <Typography variant="body1">
                     €{set.price.toFixed(2)}
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="body2" color="textSecondary">
+                  <Typography variant="body1">
                     {set.notes || 'No notes available.'}
                   </Typography>
                 </TableCell>
                 <TableCell>
-                  <Typography variant="body2" color="textSecondary">
-                    {set.stock > 0 ? "In Stock" : "Out of Stock"}
-                  </Typography>
+                  <Chip label={set.stock > 0 ? "In Stock" : "Out of Stock"} color={set.stock > 0 ? "success" : "error"} />
                 </TableCell>
                 <TableCell>
                   <Button size="small" variant="text" color="primary" sx={{ ml: 1 }} component={Link} to={`/sets/${set.id}`}>

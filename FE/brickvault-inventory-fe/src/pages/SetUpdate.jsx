@@ -87,8 +87,8 @@ export default function SetUpdate() {
   }
 
   return (
-    <Box p={3}>
-      <Typography variant="h4">
+    <Box p={3} sx={{ maxWidth: 700, mx: 'auto' }}>
+      <Typography variant="h6" sx={{ mt: 3, mb:4, color: 'black', textAlign: 'left', ml: 1 }}>
         Update Set Details
       </Typography>
 
@@ -161,8 +161,8 @@ export default function SetUpdate() {
             multiline
             rows={3}
           />
-          <Button type="submit" variant='contained'> Update Set </Button>
-          <Button component={Link} to="/inventory" variant="outlined"> Cancel </Button>
+          <Button type="submit" variant='contained' sx={{ mb: 2, mr: 1 }}> Update Set </Button>
+          <Button component={Link} to="/inventory" variant="outlined"  sx={{ mb: 2 }}> Cancel </Button>
       </form>
     </Box>
   )

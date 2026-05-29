@@ -33,30 +33,13 @@ function App() {
   return (
     <BrowserRouter>
     {/* referenced from https://mui.com/material-ui/react-app-bar/ for the app bar and navigation */}
-      <AppBar position="static">
+      <AppBar position="static" sx={{ backgroundColor: '#cccccc' }}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
-            <Typography
-              variant="h6"
-              noWrap
-              component="a"
-              sx={{
-                mr: 2,
-                display: { xs: 'none', md: 'flex' },
-                fontFamily: 'monospace',
-                fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
-              }}
-            >
-              BRICKVAULT
-            </Typography>
-
-            <Button component={Link} to="/inventory" sx={{ color: 'white' }}>
+            <Button component={Link} to="/inventory" sx={{ color: 'black' }}>
               Inventory List
             </Button>
-            <Button component={Link} to="/add-set" sx={{ color: 'white' }}>
+            <Button component={Link} to="/add-set" sx={{ color: 'black' }}>
               Add Set
             </Button>
           </Toolbar>

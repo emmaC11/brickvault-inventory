@@ -99,7 +99,7 @@ const onSubmit = async (e) => {
 
 return (
     <Box p={3} sx={{ maxWidth: 700, mx: 'auto' }}>
-      <Typography variant="h4" gutterBottom>
+      <Typography variant="h6" gutterBottom sx={{ color: 'black', mt: 3 }}>
         Add New Lego Set
       </Typography>
 
@@ -107,10 +107,8 @@ return (
       {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
         {/* fetch set details from rebrickable */}
         <Box mb={3}>
-          <Typography variant="h6">
-            Fetch Set Details
-          </Typography>
-          <Box display="flex" gap={2}>
+          
+          <Box display="flex" gap={3} mt={1}>
             <TextField
               label="Enter Set Number"
               value={setNumber}
@@ -188,11 +186,11 @@ return (
           <Button 
             type="submit" 
             variant="contained" 
-            sx={{ mt: 2 }}
+            sx={{ mt: 2, mb: 2, mr: 1 }}
           >
             Save Set
           </Button>
-          <Button component={Link} to="/inventory" variant="outlined" sx={{ mt: 2 }}> Cancel </Button>
+          <Button component={Link} to="/inventory" variant="outlined" sx={{ mt: 2, mb: 2 }}> Cancel </Button>
         </form>
     </Box> 
 )
