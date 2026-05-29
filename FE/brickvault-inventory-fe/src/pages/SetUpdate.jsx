@@ -97,6 +97,7 @@ export default function SetUpdate() {
           <TextField
             label="Name"
             value={formData.name}
+            onChange={(e) => setFormData({...formData, name: e.target.value})}
             fullWidth
             margin="normal"
             required
@@ -105,6 +106,7 @@ export default function SetUpdate() {
           <TextField
             label="Set Number"
             value={formData.set_number}
+            onChange={(e) => setFormData({...formData, set_number: e.target.value})}
             fullWidth
             margin="normal"
             required
@@ -114,6 +116,7 @@ export default function SetUpdate() {
             label="Year"
             type="number"
             value={formData.year}
+            onChange={(e) => setFormData({...formData, year: e.target.value})}
             fullWidth
             margin="normal"
           />
@@ -122,6 +125,7 @@ export default function SetUpdate() {
             label="Number of Parts"
             type="number"
             value={formData.num_parts}
+            onChange={(e) => setFormData({...formData, num_parts: e.target.value})}
             fullWidth
             margin="normal"
           />
@@ -131,6 +135,7 @@ export default function SetUpdate() {
             type="number"
             step="0.01"
             value={formData.price}
+            onChange={(e) => setFormData({...formData, price: e.target.value})}
             fullWidth
             margin="normal"
             required
@@ -140,6 +145,7 @@ export default function SetUpdate() {
             label="Stock"
             type="number"
             value={formData.stock}
+            onChange={(e) => setFormData({...formData, stock: e.target.value})}
             fullWidth
             margin="normal"
             required
@@ -147,6 +153,7 @@ export default function SetUpdate() {
           <TextField
             label="Notes"
             value={formData.notes}
+            onChange={(e) => setFormData({...formData, notes: e.target.value})}
             fullWidth
             margin="normal"
             multiline
