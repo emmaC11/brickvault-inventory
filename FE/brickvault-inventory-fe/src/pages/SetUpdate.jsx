@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, Link } from 'react-router-dom'
 import { 
   Box,
   TextField,
@@ -162,6 +162,7 @@ export default function SetUpdate() {
             rows={3}
           />
           <Button type="submit" variant='contained'> Update Set </Button>
+          <Button component={Link} to="/inventory" variant="outlined"> Cancel </Button>
       </form>
     </Box>
   )

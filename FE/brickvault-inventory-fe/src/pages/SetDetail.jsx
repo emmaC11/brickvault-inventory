@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
+import { Button } from '@mui/material'
 
 export default function SetDetail() {
   // setId passed from InventoryList.jsx (view button)
@@ -40,6 +41,7 @@ export default function SetDetail() {
         <p><strong>Notes:</strong> {setInfo.notes || 'NA'}</p>
         <p><strong>ID:</strong> {setInfo.id}</p>
       </div>
-</div>
+      <Button component={Link} to="/inventory" variant="contained"> Back to Inventory </Button>
+    </div>
   )
 }

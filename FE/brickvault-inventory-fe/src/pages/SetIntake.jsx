@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { Box, Typography, Button, TextField, Alert } from '@mui/material'
+import { Link } from 'react-router-dom'
 export default function SetIntake() {
 
 const [setNumber, setSetNumber] = useState('');
@@ -191,6 +192,7 @@ return (
           >
             Save Set
           </Button>
+          <Button component={Link} to="/inventory" variant="outlined" sx={{ mt: 2 }}> Cancel </Button>
         </form>
     </Box> 
 )
