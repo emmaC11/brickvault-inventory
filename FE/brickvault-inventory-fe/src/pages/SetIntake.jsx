@@ -14,7 +14,9 @@ const [formData, setFormData] = useState({
   num_parts: '',
   price: '',
   notes: '',
-  stock:''
+  stock:'',
+  description: '',
+  condition: ''
 });
 
 // fetch data from rebrickabke api
@@ -42,6 +44,8 @@ const fetchSetData = async () =>
       set_number: data.set_number,
       num_parts: data.num_parts,
       year: data.year,
+      description: data.description,
+      condition: data.condition
     });
   }
 
@@ -97,7 +101,9 @@ const onSubmit = async (e) => {
       num_parts: formData.numParts,
       price: formData.price,
       notes: formData.notes,
-      stock: formData.stock
+      stock: formData.stock,
+      description: formData.description,
+      condition: formData.condition
     })
 });
 
@@ -205,6 +211,15 @@ return (
             label="Notes"
             value={formData.notes}
             onChange={(e) => setFormData({...formData, notes: e.target.value})}
+            fullWidth
+            margin="normal"
+            multiline
+          />
+
+          <TextField
+            label="Description"
+            value={formData.description}
+            onChange={(e) => setFormData({...formData, description: e.target.value})}
             fullWidth
             margin="normal"
             multiline
