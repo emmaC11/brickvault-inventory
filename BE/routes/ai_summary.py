@@ -29,4 +29,6 @@ def generate_summary(set_id):
     max_tokens=200,
     messages=[{"role": "user", "content": prompt}]
 )
- 
+
+    summary = message.content[0].text
+    return jsonify({'summary': summary}), 200   
