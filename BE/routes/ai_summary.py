@@ -23,4 +23,10 @@ def generate_summary(set_id):
     Year: {lego_set.year or 'Unknown'}
     
     Focus on what makes this set appealing for collectors and enthusiasts."""
-       
+
+    message = claudeClient.messages.create(
+    model="claude-sonnet-4-6",
+    max_tokens=200,
+    messages=[{"role": "user", "content": prompt}]
+)
+ 
