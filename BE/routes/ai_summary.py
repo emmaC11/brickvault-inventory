@@ -1,16 +1,18 @@
 from env import ANTHROPIC_API_KEY
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from models import LegoSet
 import anthropic
 
 ai_bp = Blueprint('ai', __name__)
 
-@ai_bp.route('/sets/<int:set_id>/summary', methods=['GET'])
-def generate_summary(set_id):
-    # query set from db
-    lego_set = LegoSet.query.get(set_id)
-    if not lego_set:
-        return jsonify({'error': 'Set not found'}), 404
+@ai_bp.route('/sets/summary', methods=['POST'])
+def generate_summary():
+    # data from request body
+    data = request.get_json()
+    set_number = data.get('set_number')
+    year = data.get('year', 'NA')
+    name = data.get('name', 'NA')
+
     
     try:
         ## call claude API to generate set summary
@@ -19,9 +21,9 @@ def generate_summary(set_id):
         # used ai to generate prompt
         prompt = f"""Generate a brief, engaging product description (2-3 sentences) for this LEGO set:
         
-        Name: {lego_set.name}
-        Set Number: {lego_set.set_number}
-        Year: {lego_set.year or 'Unknown'}
+        Name: {name}
+        Set Number: {set_number}
+        Year: {year}
         
         Focus on what makes this set appealing for collectors and enthusiasts."""
 
