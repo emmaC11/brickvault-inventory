@@ -12,6 +12,21 @@ export default function CustomerIntake() {
         email: '',
         phone_number: ''
     })
+
+    useEffect(() => {
+        fetchSets()
+    }, [])
+    
+  const fetchSets = async () => {
+    try {
+      const res = await fetch('http://localhost:5000/sets')
+      const data = await res.json()
+      setSets(data)
+    } catch (err) {
+      setError(err.message)
+      console.error('error fetching sets:', err)
+    }
+  }
     
   return (
     <div>
