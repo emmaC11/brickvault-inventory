@@ -39,3 +39,15 @@ class Customer(db.Model):
             'l_name': self.l_name,
             'email': self.email,
         }
+    
+class WishlistEntry(db.Model):
+    wishlist_id = db.Column(db.Integer, primary_key=True)
+    customer_id = db.Column(db.Integer, db.ForeignKey('customer.id'), nullable=False)
+    lego_set_id = db.Column(db.Integer, db.ForeignKey('lego_set.id'), nullable=False)
+
+    def to_dict(self):
+        return {
+            'wishlist_id': self.wishlist_id,
+            'customer_id': self.customer_id,
+            'lego_set_id': self.lego_set_id
+        }
