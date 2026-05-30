@@ -39,6 +39,8 @@ export default function SetDetail() {
         <p><strong>Number of Parts:</strong> {setInfo.num_parts || 'NA'}</p>
         <p><strong>Stock:</strong> {setInfo.stock}</p>
         <p><strong>Notes:</strong> {setInfo.notes || 'NA'}</p>
+        <p><strong>Description:</strong> {setInfo.description || 'NA'}</p>
+        <p><strong>Condition:</strong> {setInfo.condition || 'NA'}</p>
         <p><strong>ID:</strong> {setInfo.id}</p>
       </div>
       <Button component={Link} to="/inventory" variant="contained"> Back to Inventory </Button>
