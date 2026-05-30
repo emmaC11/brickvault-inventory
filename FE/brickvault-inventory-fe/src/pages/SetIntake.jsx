@@ -73,8 +73,8 @@ const generateAISummary = async () => {
       }
       const data = await res.json()
       setSummary(data.summary)
-      // update notes field with AI summary
-      setFormData({...formData, notes: data.summary})
+      // update description field with AI summary
+      setFormData({...formData, description: data.summary})
     } catch (err) {
       setError(err.message)
       console.error('error generating summary:', err)
