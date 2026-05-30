@@ -11,7 +11,7 @@ def generate_summary():
     data = request.get_json()
     set_number = data.get('set_number')
     year = data.get('year', 'NA')
-    name = data.get('name', 'NA')
+    name = data.get('name')
 
     
     try:
