@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { Box, Typography, Button, TextField, Alert } from '@mui/material'
+import { Box, Typography, Button, TextField, Alert, MenuItem, Select, FormControl, InputLabel } from '@mui/material'
 import { Link } from 'react-router-dom'
 export default function SetIntake() {
 
@@ -206,6 +206,22 @@ return (
             margin="normal"
             required
           />
+  
+          <FormControl fullWidth margin="normal">
+            <InputLabel>Condition</InputLabel>
+            <Select
+              value={formData.condition}
+              onChange={(e) => setFormData({...formData, condition: e.target.value})}
+              label="Condition"
+            >
+              <MenuItem value="New">Unused - New</MenuItem>
+              <MenuItem value="Like New">Used - Like New</MenuItem>
+              <MenuItem value="Very Good"> Used - Very Good</MenuItem>
+              <MenuItem value="Good">Used - Good</MenuItem>
+              <MenuItem value="Fair">Used - Fair</MenuItem>
+              <MenuItem value="Poor">Used - Poor</MenuItem>
+            </Select>
+          </FormControl>
 
           <TextField
             label="Notes"
