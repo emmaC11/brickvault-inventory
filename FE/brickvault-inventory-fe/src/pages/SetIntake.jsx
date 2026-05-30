@@ -69,6 +69,8 @@ const generateAISummary = async () => {
       }
       const data = await res.json()
       setSummary(data.summary)
+      // update notes field with AI summary
+      setFormData({...formData, notes: data.summary})
     } catch (err) {
       setError(err.message)
       console.error('error generating summary:', err)
@@ -207,6 +209,13 @@ return (
             margin="normal"
             multiline
           />
+
+          <Button
+            variant="outlined"
+            onClick={generateAISummary}
+            sx={{ mt: 2, mb: 2, mr: 2 }}>
+            Generate AI Summary 
+          </Button>
 
           <Button 
             type="submit" 
