@@ -12,23 +12,27 @@ def generate_summary(set_id):
     if not lego_set:
         return jsonify({'error': 'Set not found'}), 404
     
-    ## call claude API to generate set summary
-    claudeClient = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
-    
-    # used ai to generate prompt
-    prompt = f"""Generate a brief, engaging product description (2-3 sentences) for this LEGO set:
-    
-    Name: {lego_set.name}
-    Set Number: {lego_set.set_number}
-    Year: {lego_set.year or 'Unknown'}
-    
-    Focus on what makes this set appealing for collectors and enthusiasts."""
+    try:
+        ## call claude API to generate set summary
+        claudeClient = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+        
+        # used ai to generate prompt
+        prompt = f"""Generate a brief, engaging product description (2-3 sentences) for this LEGO set:
+        
+        Name: {lego_set.name}
+        Set Number: {lego_set.set_number}
+        Year: {lego_set.year or 'Unknown'}
+        
+        Focus on what makes this set appealing for collectors and enthusiasts."""
 
-    message = claudeClient.messages.create(
-    model="claude-sonnet-4-6",
-    max_tokens=200,
-    messages=[{"role": "user", "content": prompt}]
-)
+        message = claudeClient.messages.create(
+        model="claude-sonnet-4-6",
+        max_tokens=200,
+        messages=[{"role": "user", "content": prompt}]
+    )
 
-    summary = message.content[0].text
-    return jsonify({'summary': summary}), 200   
+        summary = message.content[0].text
+        return jsonify({'summary': summary}), 200  
+     
+    except Exception as error:
+        return jsonify({'error in ai_summary.py': str(error)}), 500
