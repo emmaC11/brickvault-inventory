@@ -31,7 +31,6 @@ class Customer(db.Model):
     f_name = db.Column(db.String(50), unique=True, nullable=False) 
     l_name = db.Column(db.String(50), unique=True, nullable=False) 
     email = db.Column(db.String(100), unique=True, nullable=False) 
-    phone_number = db.Column(db.String(20), nullable=True)
 
     def to_dict(self):
         return {
@@ -39,5 +38,4 @@ class Customer(db.Model):
             'f_name': self.f_name,
             'l_name': self.l_name,
             'email': self.email,
-            'phone_number': self.phone_number,
         }
