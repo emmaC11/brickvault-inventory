@@ -40,5 +40,4 @@ class Customer(db.Model):
             'l_name': self.l_name,
             'email': self.email,
             'phone_number': self.phone_number,
-            'role': self.role
         }
