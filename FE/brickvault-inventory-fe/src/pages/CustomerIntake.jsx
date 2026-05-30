@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { Box, Typography, Button, TextField, Alert, MenuItem, Select, FormControl, InputLabel } from '@mui/material'
 import { Link } from 'react-router-dom'
 
@@ -11,7 +11,6 @@ export default function CustomerIntake() {
         f_name: '',
         l_name: '',
         email: '',
-        phone_number: ''
     })
 
     useEffect(() => {
@@ -42,7 +41,6 @@ const onSubmit = async (e) => {
             f_name: formData.f_name,
             l_name: formData.l_name,
             email: formData.email,
-            phone_number: formData.phone_number,
             wishlist_set_ids: selectedSetIds
         })
         });
@@ -57,8 +55,7 @@ const onSubmit = async (e) => {
         setFormData({
         f_name: '',
         l_name: '',
-        email: '',
-        phone_number: ''
+        email: ''
         });
         setSelectedSetIds([]);
     } catch (err) {
