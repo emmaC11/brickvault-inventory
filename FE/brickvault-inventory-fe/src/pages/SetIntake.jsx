@@ -118,7 +118,9 @@ const onSubmit = async (e) => {
       num_parts: '',
       price: '',
       notes: '',
-      stock:''
+      stock:'',
+      description: '',
+      condition: ''
     });
   }
     catch (err) {
