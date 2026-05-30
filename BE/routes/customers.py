@@ -7,6 +7,7 @@ customers_bp = Blueprint('customers', __name__)
 @customers_bp.route('/customers', methods=['GET'])
 def get_customers():
     customers = Customer.query.all()
+    result = []
     # loop through customers and get wishlist entries
     for customer in customers:
         wishlist_entries = WishlistEntry.query.filter_by(customer_id=customer.id).all()
@@ -17,3 +18,10 @@ def get_customers():
             # set exists - add to available sets list
             if lego_set:
                 available_sets.append(lego_set.to_dict())
+    
+        customer = customer.to_dict()
+        # add new available sets key to customer and append to result list
+        customer['available_sets'] = available_sets
+        result.append(customer)
+
+    return jsonify(result)
