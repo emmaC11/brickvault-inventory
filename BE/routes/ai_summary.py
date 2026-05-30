@@ -12,3 +12,15 @@ def generate_summary(set_id):
     if not lego_set:
         return jsonify({'error': 'Set not found'}), 404
     
+    ## call claude API to generate set summary
+    claudeClient = anthropic.Anthropic(api_key=ANTHROPIC_API_KEY)
+    
+    # used ai to generate prompt
+    prompt = f"""Generate a brief, engaging product description (2-3 sentences) for this LEGO set:
+    
+    Name: {lego_set.name}
+    Set Number: {lego_set.set_number}
+    Year: {lego_set.year or 'Unknown'}
+    
+    Focus on what makes this set appealing for collectors and enthusiasts."""
+       
