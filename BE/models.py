@@ -9,6 +9,8 @@ class LegoSet(db.Model): # todo: add rest of the fields
     num_parts =  db.Column(db.Integer, nullable=True)
     notes = db.Column(db.String(1000), nullable=True)
     stock = db.Column(db.Integer, nullable=False, default=1)
+    description = db.Column(db.String(1000), nullable=True)
+    condition = db.Column(db.String(50), nullable=True)
 
     def to_dict(self):
         return {
@@ -19,7 +21,9 @@ class LegoSet(db.Model): # todo: add rest of the fields
             'year': self.year,
             'num_parts': self.num_parts,
             'notes': self.notes,
-            'stock': self.stock
+            'stock': self.stock,
+            'description': self.description,
+            'condition': self.condition
         }
     
 class Customer(db.Model):
