@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 export default function SetIntake() {
 
 const [setNumber, setSetNumber] = useState('');
+const [summary, setSummary] = useState('')
 const [success, setSuccess] = useState('');
 const [error, setError] = useState('');
 const [formData, setFormData] = useState({
@@ -49,6 +50,30 @@ const fetchSetData = async () =>
       console.error('error fetching from rebrickable api from SetIntake.jsx', err);
     }
 }
+
+const generateAISummary = async () => {
+    try {
+      const res = await fetch('http://localhost:5000/sets/summary', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          set_number: setNumber,
+          name: formData.name,
+          year: formData.year
+        })
+      });
+      if(!res.ok) {
+        throw new Error('error generating AI summary')
+      }
+      const data = await res.json()
+      setSummary(data.summary)
+    } catch (err) {
+      setError(err.message)
+      console.error('error generating summary:', err)
+    }
+  }
 
 // handle form submissions - send form data to our post endpoint
 const onSubmit = async (e) => {
