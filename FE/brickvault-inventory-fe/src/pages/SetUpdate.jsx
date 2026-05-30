@@ -22,7 +22,9 @@ export default function SetUpdate() {
         num_parts: '',
         price: '',
         stock: '',
-        notes: ''
+        notes: '',
+        description: '',
+        condition: ''
     })
 
     useEffect(() => {
@@ -44,7 +46,9 @@ export default function SetUpdate() {
         num_parts: data.num_parts || '',
         price: data.price || '',
         notes: data.notes || '',
-        stock: data.stock || ''
+        stock: data.stock || '',
+        description: data.description || '',
+        condition: data.condition || ''
       })
     } catch (err) {
       setError(err.message)
@@ -72,7 +76,9 @@ export default function SetUpdate() {
             num_parts: formData.num_parts,
             price: formData.price,
             notes: formData.notes,
-            stock: formData.stock
+            stock: formData.stock,
+            description: formData.description,
+            condition: formData.condition
           })
       })
       if(!res.ok) {
@@ -156,6 +162,16 @@ export default function SetUpdate() {
             label="Notes"
             value={formData.notes}
             onChange={(e) => setFormData({...formData, notes: e.target.value})}
+            fullWidth
+            margin="normal"
+            multiline
+            rows={3}
+          />
+
+          <TextField
+            label="Description"
+            value={formData.description}
+            onChange={(e) => setFormData({...formData, description: e.target.value})}
             fullWidth
             margin="normal"
             multiline
