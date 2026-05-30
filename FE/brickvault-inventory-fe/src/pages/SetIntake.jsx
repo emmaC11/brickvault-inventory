@@ -213,6 +213,7 @@ return (
           <Button
             variant="outlined"
             onClick={generateAISummary}
+            disabled={!formData.name || !formData.set_number}
             sx={{ mt: 2, mb: 2, mr: 2 }}>
             Generate AI Summary 
           </Button>
