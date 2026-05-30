@@ -25,3 +25,15 @@ def get_customers():
         result.append(customer)
 
     return jsonify(result)
+
+@customers_bp.route('/customers', methods=['POST'])
+def create_customer():
+    data = request.get_json()
+    new_customer = Customer(f_name=data['f_name'], l_name=data['l_name'], email=data['email'])
+    db.session.add(new_customer)
+    db.session.commit()
+    # add customer & set_id to wishlist entry table if sent in the request
+    for set_id in data.get('wishlist_set_ids', []):
+        db.session.add(WishlistEntry(customer_id=new_customer.id, lego_set_id=set_id))
+    db.session.commit()
+    return jsonify(new_customer.to_dict()), 201
