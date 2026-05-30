@@ -4,6 +4,8 @@ import InventoryList from './pages/InventoryList'
 import SetIntake from './pages/SetIntake'
 import SetDetail from './pages/SetDetail'
 import SetUpdate from './pages/SetUpdate'
+import CustomerIntake from './pages/CustomerIntake'
+import CustomerList from './pages/CustomerList'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar';
@@ -42,6 +44,12 @@ function App() {
             <Button component={Link} to="/add-set" sx={{ color: 'black' }}>
               Add Set
             </Button>
+            <Button component={Link} to="/customers" sx={{ color: 'black' }}>
+              Customer List
+            </Button>
+            <Button component={Link} to="/add-customer" sx={{ color: 'black' }}>
+              Add Customer
+            </Button>
           </Toolbar>
         </Container>
       </AppBar>
@@ -51,6 +59,8 @@ function App() {
         <Route path="/add-set" element={<SetIntake />} />
         <Route path="/sets/:setId" element={<SetDetail />} />
         <Route path="/sets/edit/:setId/" element={<SetUpdate />} />
+        <Route path="/customers" element={<CustomerList />} />
+        <Route path="/add-customer" element={<CustomerIntake />} />
       </Routes>
     </BrowserRouter>
   )
