@@ -22,7 +22,7 @@ def get_set_info(set_id):
 @sets_bp.route('/sets', methods=['POST'])
 def create_set():
     data = request.get_json()
-    new_set = LegoSet(name=data['name'], price=data['price'], set_number=data['set_number'], year=data.get('year'), num_parts=data.get('num_parts'), notes=data.get('notes'), stock=data.get('stock'))
+    new_set = LegoSet(name=data['name'], price=data['price'], set_number=data['set_number'], year=data.get('year'), num_parts=data.get('num_parts'), notes=data.get('notes'), stock=data.get('stock'), description=data.get('description'), condition=data.get('condition'))
     db.session.add(new_set)
     db.session.commit()
     return jsonify(new_set.to_dict()), 201
@@ -39,6 +39,8 @@ def update_set(set_id):
         update_set.num_parts = data.get('num_parts', update_set.num_parts)
         update_set.notes = data.get('notes', update_set.notes)
         update_set.stock = data.get('stock', update_set.stock)
+        update_set.description = data.get('description', update_set.description)
+        update_set.condition = data.get('condition', update_set.condition)
         db.session.commit()
         return jsonify(update_set.to_dict()), 200
     else:
