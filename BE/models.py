@@ -32,7 +32,6 @@ class Customer(db.Model):
     l_name = db.Column(db.String(50), unique=True, nullable=False) 
     email = db.Column(db.String(100), unique=True, nullable=False) 
     phone_number = db.Column(db.String(20), nullable=True)
-    role = db.Column(db.String(20), nullable=False, default='user') # can have admin role 
 
     def to_dict(self):
         return {
