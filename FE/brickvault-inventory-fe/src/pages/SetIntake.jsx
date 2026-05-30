@@ -44,8 +44,6 @@ const fetchSetData = async () =>
       set_number: data.set_number,
       num_parts: data.num_parts,
       year: data.year,
-      description: data.description,
-      condition: data.condition
     });
   }
 
