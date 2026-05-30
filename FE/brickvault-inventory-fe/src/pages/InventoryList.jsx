@@ -60,7 +60,7 @@ export default function InventoryList() {
               <TableCell><strong>Set #</strong></TableCell>
               <TableCell><strong>Name</strong></TableCell>
               <TableCell><strong>Price</strong></TableCell>
-              <TableCell><strong>Notes</strong></TableCell>
+              <TableCell><strong>Condition</strong></TableCell>
               <TableCell><strong>Status</strong></TableCell> 
               <TableCell><strong>Actions</strong></TableCell>
             </TableRow>
@@ -85,7 +85,7 @@ export default function InventoryList() {
                 </TableCell>
                 <TableCell>
                   <Typography variant="body1">
-                    {set.notes || 'No notes available.'}
+                    {set.condition || 'NA'}
                   </Typography>
                 </TableCell>
                 <TableCell>
