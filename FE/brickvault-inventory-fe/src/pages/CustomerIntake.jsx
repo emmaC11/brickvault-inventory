@@ -103,6 +103,30 @@ const onSubmit = async (e) => {
                 required
             />
 
+            <FormControl fullWidth margin="normal">
+                <InputLabel>Wishlist Sets</InputLabel>
+                <Select
+                    multiple
+                    value={selectedSetIds}
+                    onChange={(e) => setSelectedSetIds(e.target.value)}
+                    label="Wishlist Sets"
+
+                    // render set number & name instead of IDs
+                    renderValue={(selected) =>
+                        selected.map(id => {
+                        const s = sets.find(set => set.id === id);
+                        return s ? s.name : id;
+                        }).join(', ')
+                    }
+                    >
+                    {sets.map((set) => (
+                        <MenuItem key={set.id} value={set.id}>
+                        {set.set_number} | {set.name}
+                        </MenuItem>
+                    ))}
+                </Select>
+            </FormControl>
+
             <Button
                 type="submit"
                 variant="contained"
