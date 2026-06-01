@@ -64,6 +64,9 @@ function App() {
         <Route path="/add-customer" element={<CustomerIntake />} />
         <Route path="/customers/edit/:customerId" element={<CustomerUpdate />} />
       </Routes>
+      <Routes>
+        <Route path="/" element={<InventoryList />} />
+      </Routes>
     </BrowserRouter>
   )
 }
