@@ -28,8 +28,8 @@ class LegoSet(db.Model): # todo: add rest of the fields
     
 class Customer(db.Model):
     id = db.Column(db.Integer, primary_key=True) 
-    f_name = db.Column(db.String(50), unique=True, nullable=False) 
-    l_name = db.Column(db.String(50), unique=True, nullable=False) 
+    f_name = db.Column(db.String(50), nullable=False) 
+    l_name = db.Column(db.String(50), nullable=False) 
     email = db.Column(db.String(100), unique=True, nullable=False) 
 
     def to_dict(self):
