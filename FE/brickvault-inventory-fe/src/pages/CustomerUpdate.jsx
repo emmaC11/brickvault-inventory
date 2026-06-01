@@ -23,6 +23,44 @@ export default function CustomerUpdate() {
       email: ''
   })
 
+  useEffect(() => {
+    fetchCustomerDetails()
+    fetchSets()
+  }, [customerId])
+
+  const fetchCustomerDetails = async () => {
+    try {
+      const res = await fetch('http://localhost:5000/customers')
+      if (!res.ok) {
+        throw new Error('Error fetching customer details')
+      }
+      const data = await res.json()
+      const customer = data.find(c => c.id === parseInt(customerId))
+      if (!customer) {
+        throw new Error('Customer not found')
+      }
+      setFormData({
+        f_name: customer.f_name || '',
+        l_name: customer.l_name || '',
+        email: customer.email || ''
+      })
+    } catch (err) {
+      setError(err.message)
+      console.error('error fetching customer details:', err)
+    }
+  }
+
+  const fetchSets = async () => {
+    try {
+      const res = await fetch('http://localhost:5000/sets')
+      const data = await res.json()
+      setSets(data)
+    } catch (err) {
+      setError(err.message)
+      console.error('error fetching sets:', err)
+    }
+  }
+
   return (
     <div>
       
