@@ -1,12 +1,13 @@
 import React, {useState} from 'react'
 import { Box, Typography, Button, TextField, Alert, MenuItem, Select, FormControl, InputLabel } from '@mui/material'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 export default function SetIntake() {
 
 const [setNumber, setSetNumber] = useState('');
 const [summary, setSummary] = useState('')
 const [success, setSuccess] = useState('');
 const [error, setError] = useState('');
+const navigate = useNavigate()
 const [formData, setFormData] = useState({
   set_number: '',
   name: '',
@@ -122,8 +123,8 @@ const onSubmit = async (e) => {
       description: '',
       condition: ''
     });
-  }
-    catch (err) {
+    navigate('/inventory')
+    } catch (err) {
       setError(err.message);
       console.error('error submitting form data from SetIntake.jsx', err);
     }
