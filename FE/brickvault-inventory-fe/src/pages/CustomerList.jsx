@@ -46,6 +46,7 @@ export default function CustomerList() {
               <TableCell><strong>Name</strong></TableCell>
               <TableCell><strong>Email</strong></TableCell>
               <TableCell><strong>Available Wishlist Sets</strong></TableCell>
+              <TableCell><strong>Actions</strong></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -74,6 +75,14 @@ export default function CustomerList() {
                         />
                       ))
                   }
+                </TableCell>
+                <TableCell>
+                  <Button size="small" variant="text" color="primary" sx={{ ml: 1 }}>
+                    Edit
+                  </Button>
+                  <Button size="small" variant="text" color="error" sx={{ ml: 1 }}>
+                    Delete
+                  </Button>
                 </TableCell>
               </TableRow>
             ))}
