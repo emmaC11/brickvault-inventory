@@ -75,11 +75,6 @@ export default function CustomerList() {
                       ))
                   }
                 </TableCell>
-                <TableCell>
-                  <Button size="small" variant="text" color="error" sx={{ ml: 1 }}>
-                    Delete
-                  </Button>
-                </TableCell>
               </TableRow>
             ))}
           </TableBody>
