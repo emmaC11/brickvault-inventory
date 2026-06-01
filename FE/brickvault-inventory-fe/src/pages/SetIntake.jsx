@@ -206,6 +206,17 @@ return (
             margin="normal"
             required
           />
+
+          <TextField
+            label="Stock"
+            type="number"
+            value={formData.stock}
+            onChange={(e) => setFormData({...formData, stock: e.target.value})}
+            fullWidth
+            margin="normal"
+            required
+            inputProps={{ min: 1 }}
+          />
   
           <FormControl fullWidth margin="normal">
             <InputLabel>Condition</InputLabel>
