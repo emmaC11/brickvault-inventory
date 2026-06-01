@@ -96,7 +96,7 @@ const onSubmit = async (e) => {
       name: formData.name,
       set_number: formData.set_number,
       year: formData.year,
-      num_parts: formData.numParts,
+      num_parts: formData.num_parts,
       price: formData.price,
       notes: formData.notes,
       stock: formData.stock,
