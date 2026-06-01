@@ -24,17 +24,6 @@ app.register_blueprint(customers_bp)
 with app.app_context():
     db.create_all()
 
-# sample route
-@app.route('/')
-
-def test():
-    return 'hello world'
-
-@app.route('/about') # decorator - must be directly above the function I want to call
-def aboutTest(): # connected to function
-    return jsonify({ 'message': 'calling from flask', 'status': 'success'
-    })
-
 # run
 if __name__ == '__main__':
     app.run(debug=True)
