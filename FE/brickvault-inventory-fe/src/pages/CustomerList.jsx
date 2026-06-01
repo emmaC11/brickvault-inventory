@@ -34,6 +34,19 @@ export default function CustomerList() {
     }
   }
 
+  const deleteCustomer = async (customerId) => {
+    try {
+      const res = await fetch(`http://localhost:5000/customers/${customerId}`, {
+        method: 'DELETE'
+      })
+      if (res.ok) {
+        fetchCustomers()
+      }
+    } catch (err) {
+      setError(err.message)
+      console.error('error deleting customer:', err)
+    }
+  }
 
   return (
     <Box p={3}>
@@ -81,7 +94,7 @@ export default function CustomerList() {
                   <Button size="small" variant="text" color="primary" sx={{ ml: 1 }} component={Link} to={`/customers/edit/${customer.id}`} >
                     Edit
                   </Button>
-                  <Button size="small" variant="text" color="error" sx={{ ml: 1 }}>
+                  <Button size="small" variant="text" color="error" sx={{ ml: 1 }} onClick={() => deleteCustomer(customer.id)}>
                     Delete
                   </Button>
                 </TableCell>
