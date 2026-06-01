@@ -12,11 +12,11 @@ def get_set_details_from_rebrickable(set_number):
 
             response = requests.get(url, headers=headers)
 
-            if response.status_code !=200:
-                return jsonify({'failed to fetch data from rebrickable API'}), response.status_code
-
             if response.status_code == 404:
                 return jsonify({'set not found in rebrickable API'}), 404
+
+            elif response.status_code != 200:
+                return jsonify({'error': 'Error fetching data from Rebrickable API'}), response.status_code
             
             # parse response to dict & map to LegoSet fields
             data = response.json()
