@@ -37,3 +37,13 @@ def create_customer():
         db.session.add(WishlistEntry(customer_id=new_customer.id, lego_set_id=set_id))
     db.session.commit()
     return jsonify(new_customer.to_dict()), 201
+
+@customers_bp.route('/customers/<int:customer_id>', methods=['DELETE'])
+def delete_customer(customer_id):
+    customer = Customer.query.get(customer_id)
+    if customer:
+        db.session.delete(customer)
+        db.session.commit()
+        return jsonify({'message': 'Customer deleted successfully'}), 200
+    else:
+        return jsonify({'error': 'Customer not found'}), 404
