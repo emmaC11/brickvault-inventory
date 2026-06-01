@@ -61,6 +61,35 @@ export default function CustomerUpdate() {
     }
   }
 
+  const onSubmit = async (e) => {
+    e.preventDefault()
+    setError('')
+    setSuccess('')
+
+    try {
+      const res = await fetch(`http://localhost:5000/customers/${customerId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          f_name: formData.f_name,
+          l_name: formData.l_name,
+          email: formData.email,
+          wishlist_set_ids: selectedSetIds
+        })
+      })
+      if (!res.ok) {
+        throw new Error('error updating customer details')
+      }
+      setSuccess('customer details updated successfully')
+      navigate('/customers')
+    } catch (err) {
+      setError(err.message)
+      console.error('error updating customer details:', err)
+    }
+  }
+
   return (
     <div>
       
