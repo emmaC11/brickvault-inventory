@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import {
   Table,
   TableBody,
@@ -77,7 +78,7 @@ export default function CustomerList() {
                   }
                 </TableCell>
                 <TableCell>
-                  <Button size="small" variant="text" color="primary" sx={{ ml: 1 }}>
+                  <Button size="small" variant="text" color="primary" sx={{ ml: 1 }} component={Link} to={`/customers/edit/${customer.id}`} >
                     Edit
                   </Button>
                   <Button size="small" variant="text" color="error" sx={{ ml: 1 }}>

@@ -6,6 +6,7 @@ import SetDetail from './pages/SetDetail'
 import SetUpdate from './pages/SetUpdate'
 import CustomerIntake from './pages/CustomerIntake'
 import CustomerList from './pages/CustomerList'
+import CustomerUpdate from './pages/CustomerUpdate'
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar'
 import Toolbar from '@mui/material/Toolbar';
@@ -61,6 +62,7 @@ function App() {
         <Route path="/sets/edit/:setId/" element={<SetUpdate />} />
         <Route path="/customers" element={<CustomerList />} />
         <Route path="/add-customer" element={<CustomerIntake />} />
+        <Route path="/customers/edit/:customerId" element={<CustomerUpdate />} />
       </Routes>
     </BrowserRouter>
   )
