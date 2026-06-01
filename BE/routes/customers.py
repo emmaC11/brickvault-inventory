@@ -47,3 +47,20 @@ def delete_customer(customer_id):
         return jsonify({'message': 'Customer deleted successfully'}), 200
     else:
         return jsonify({'error': 'Customer not found'}), 404
+    
+@customers_bp.route('/customers/<int:customer_id>', methods=['POST'])
+def update_customer(customer_id):
+    data = request.get_json()
+    customer = Customer.query.get(customer_id)
+    if customer:
+        customer.f_name = data['f_name']
+        customer.l_name = data['l_name']
+        customer.email = data['email']
+        # add new wishlist entries if sent in the request
+        for set_id in data.get('wishlist_set_ids', []):
+            db.session.add(WishlistEntry(customer_id=customer_id, lego_set_id=set_id))
+        db.session.commit()
+        return jsonify(customer.to_dict()), 200
+    else:
+        return jsonify({'error': 'Customer not found'}), 404
+    
