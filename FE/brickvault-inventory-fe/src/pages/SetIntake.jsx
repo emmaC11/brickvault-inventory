@@ -177,6 +177,7 @@ return (
             onChange={(e) => setFormData({...formData, set_number: e.target.value})}
             fullWidth
             margin="normal"
+            required
 
           />
 
@@ -186,6 +187,7 @@ return (
             value={formData.year}
             onChange={(e) => setFormData({...formData, year: e.target.value})}
             fullWidth
+            required
           />
 
           <TextField
