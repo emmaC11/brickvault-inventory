@@ -70,7 +70,7 @@ def test_delete_set(client):
 
     res = client.delete(f'/sets/{set_id}')
     assert res.status_code == 200
-    
+
     get_res = client.get(f'/sets/{set_id}')
     assert get_res.status_code == 404
 
@@ -79,3 +79,30 @@ def test_delete_set_not_found(client):
     """DELETE /sets/<id> returns 404 for set that does not exist."""
     res = client.delete('/sets/999')
     assert res.status_code == 404
+
+# integration test with React FE
+def test_create_and_retrieve_set(client):
+    """
+    Integration test -> POST a set then GET it back
+    flow of SetIntake.jsx (POST) -> InventoryList.jsx (GET)
+    """
+
+    # 1 - create the set
+    create_res = client.post('/sets', json=SAMPLE_SET)
+    assert create_res.status_code == 201
+    set_id = create_res.get_json()['id']
+
+    # 2 - retrieve by set_id
+    get_res = client.get(f'/sets/{set_id}')
+    assert get_res.status_code == 200
+    body = get_res.get_json()
+    assert body['name'] == SAMPLE_SET['name']
+    assert body['price'] == SAMPLE_SET['price']
+    assert body['set_number'] == SAMPLE_SET['set_number']
+    assert body['year'] == SAMPLE_SET['year']
+    assert body['stock'] == SAMPLE_SET['stock']
+
+    # 3 - confirm it appears in set list after post/creation
+    list_res = client.get('/sets')
+    ids = [s['id'] for s in list_res.get_json()]
+    assert set_id in ids
