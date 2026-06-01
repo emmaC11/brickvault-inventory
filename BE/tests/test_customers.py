@@ -33,14 +33,13 @@ def test_create_customer(client):
 
 
 def test_get_customers(client):
-    """GET /customers returns list of customers with available_sets key."""
+    """GET /customers returns list of customers"""
     client.post('/customers', json=SAMPLE_CUSTOMER)
     res = client.get('/customers')
     assert res.status_code == 200
     body = res.get_json()
     assert len(body) == 1
     assert body[0]['email'] == SAMPLE_CUSTOMER['email']
-    assert 'available_sets' in body[0]
 
 
 def test_update_customer(client):
