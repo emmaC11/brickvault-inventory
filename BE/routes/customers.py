@@ -48,7 +48,7 @@ def delete_customer(customer_id):
     else:
         return jsonify({'error': 'Customer not found'}), 404
     
-@customers_bp.route('/customers/<int:customer_id>', methods=['POST'])
+@customers_bp.route('/customers/<int:customer_id>', methods=['PUT'])
 def update_customer(customer_id):
     data = request.get_json()
     customer = Customer.query.get(customer_id)
