@@ -91,8 +91,64 @@ export default function CustomerUpdate() {
   }
 
   return (
-    <div>
-      
-    </div>
+    <Box p={3} sx={{ maxWidth: 700, mx: 'auto' }}>
+      <Typography variant="h6" sx={{ mt: 3, mb: 4, color: 'black', textAlign: 'left', ml: 1 }}>
+        Update Customer Details
+      </Typography>
+
+      {success && <Alert severity="success" sx={{ mb: 2 }}>{success}</Alert>}
+      {error && <Alert severity="error" sx={{ mb: 2 }}>{error}</Alert>}
+
+      <form onSubmit={onSubmit}>
+        <TextField
+          label="First Name"
+          value={formData.f_name}
+          onChange={(e) => setFormData({...formData, f_name: e.target.value})}
+          fullWidth
+          margin="normal"
+          required
+        />
+        <TextField
+          label="Last Name"
+          value={formData.l_name}
+          onChange={(e) => setFormData({...formData, l_name: e.target.value})}
+          fullWidth
+          margin="normal"
+          required
+        />
+        <TextField
+          label="Email"
+          type="email"
+          value={formData.email}
+          onChange={(e) => setFormData({...formData, email: e.target.value})}
+          fullWidth
+          margin="normal"
+          required
+        />
+        <FormControl fullWidth margin="normal">
+          <InputLabel>Add Wishlist Sets</InputLabel>
+          <Select
+            multiple
+            value={selectedSetIds}
+            onChange={(e) => setSelectedSetIds(e.target.value)}
+            label="Add Wishlist Sets"
+            renderValue={(selected) =>
+              selected.map(id => {
+                const s = sets.find(set => set.id === id)
+                return s ? s.name : id
+              }).join(', ')
+            }
+          >
+            {sets.map((set) => (
+              <MenuItem key={set.id} value={set.id}>
+                {set.set_number} | {set.name}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <Button type="submit" variant="contained" sx={{ mb: 2, mr: 1 }}>Update Customer</Button>
+        <Button component={Link} to="/customers" variant="outlined" sx={{ mb: 2 }}>Cancel</Button>
+      </form>
+    </Box>
   )
 }
