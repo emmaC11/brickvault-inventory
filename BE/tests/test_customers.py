@@ -14,6 +14,9 @@ SAMPLE_SET = {
     'condition': 'New'
 }
 
+# test for customer routes
+# Claude assisted in defining test cases
+
 def test_get_customers_empty(client):
     """GET /customers returns empty list when no customers exist."""
     res = client.get('/customers')

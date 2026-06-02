@@ -9,7 +9,9 @@ SAMPLE_SET = {
     'condition': 'New'
 }
 
-
+# test for set routes
+# Claude assisted in defining test cases
+    
 def test_get_sets_empty(client):
     """GET /sets returns empty list when no sets exist."""
     res = client.get('/sets')
